@@ -6,18 +6,7 @@ angular.module('crud', [
 ])
   .config(function ($routeProvider, $locationProvider) {
     //console.log($locationProvider);
-    $routeProvider
-    .when('/todo',{
-      templateUrl:'todo/todo.html',
-      controller:'TodoCtrl'
 
-    });
-    $routeProvider
-    .when('/update/:id',{
-      templateUrl:'update/update.html',
-      controller:'UpdateCtrl'
-
-    });
 
     $routeProvider
       .otherwise({

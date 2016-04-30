@@ -3,7 +3,7 @@
 angular.module('crud')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/update', {
+      .when('/update/:id', {
         templateUrl: 'views/update/update.html',
         controller: 'UpdateCtrl'
       });

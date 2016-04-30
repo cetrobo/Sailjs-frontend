@@ -6,6 +6,7 @@ angular.module('crud')
 
 $scope.id=$routeParams.id;
 
+console.log($scope.id);
 
 
   //$scope.todo=Todolist.all();
