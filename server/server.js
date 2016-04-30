@@ -5,6 +5,7 @@ var chalk = require('chalk');
 var config = require('./config/environment');
 var mongoose = require('mongoose');
 
+
 mongoose.connect(config.mongo.uri, config.mongo.options);
 
 var app = express();

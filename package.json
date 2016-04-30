@@ -43,7 +43,8 @@
     "method-override": "^2.3.5",
     "mongoose": "^4.3.5",
     "morgan": "^1.6.1",
-    "ripe": "^0.2.1"
+    "ripe": "^0.2.1",
+    "underscore-node": "^0.1.2"
   },
   "scripts": {
     "start": "node server/server.js"
