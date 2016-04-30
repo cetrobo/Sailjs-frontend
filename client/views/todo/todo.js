@@ -5,7 +5,7 @@ angular.module('crud')
     $routeProvider
       .when('/todo', {
         templateUrl: 'views/todo/todo.html',
-        controller: 'TodoCtrl',
-        controllerAs: 'vm'
+        controller: 'TodoCtrl'
+        
       });
   });

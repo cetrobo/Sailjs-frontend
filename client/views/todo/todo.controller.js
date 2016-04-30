@@ -17,26 +17,19 @@ angular.module('crud')
   }*/
 
   $scope.selectEdit =function(todo){
-    console.log(todo);
+    //console.log(todo);
     $scope.selectedTodo=todo;
 
   }
 
 
-  $scope.edit=function(){
-
-      var index=getSelectedIndex($scope.id);
-      $scope.listTodo[index].id=$scope.id;
-      $scope.listTodo[index].message=$scope.message;
-
-  }
 
     $scope.delete=function(id){
         //console.log("id object",id);
       //console.log("before"+id);
       var result=confirm("voulez vraiment supprimez cette element");
 
-       var index=getSelectedIndex(id); //get index
+      var index=getSelectedIndex(id); //get index
        //alert(index);
        if(result === true){
 
@@ -56,7 +49,8 @@ getindex($index)
 
     }*/
 
-    function getSelectedIndex(id){
+
+  function getSelectedIndex(id){
 
 
     	for(var i=0;i<$scope.listTodo.length;i++){
@@ -70,7 +64,6 @@ getindex($index)
 
 
     };
-
 
 
   });

@@ -6,7 +6,7 @@ angular.module('crud')
     var todo=[{
       id:'a01',
       message:'Vous êtes de ceux-là ? Ca tombe bien, je lai été moi aussi !',
-      completed:true,
+      completed:false,
     },
     {
 
@@ -28,6 +28,16 @@ angular.module('crud')
         all: function(){
 
           return todo;
+
+        },
+
+        getById: function(todoId){
+
+            return _.find(todo,function(todos){
+                
+                return todos.id == todoId;
+
+            });
 
         }
 

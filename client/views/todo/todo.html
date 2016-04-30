@@ -7,7 +7,6 @@
       <li class="active"><a href="/signin">SignIn</a></li>
       <li><a href="/signup">SignUp</a></li>
       <li><a href="/todo">TodoList</a></li>
-      <li><a href="/update">UpdateTodoList</a></li>
     </ul>
   </div>
   </nav>
@@ -26,8 +25,9 @@
         <td>{{todo.id}}</td>
         <td ng-class="{'completed': todo.completed == true}">{{todo.message}}</td>
         <!--<td><button type="button" class="btn btn-primary">Ajouter</button></td>-->
-        <td><button type="button" class="btn btn-danger" ng-click="delete(todo)">Supprimer</button></td>
-          <td><a href="/update/{{todo.id}}" class="btn btn-success">Modifier</a></td>
+        <td><button type="button" class="btn btn-danger" ng-click="delete(todo.id)">Supprimer</button></td>
+          <td><a href="/update/{{todo.id}}" class="btn btn-success" ng-click="selectEdit(todo)">Modifier</a></td>
+          <td><a href="/add" class="btn btn-primary" ng-click="add(todo)">Ajouter</a></td>
       </tr>
     </tbody>
   </table>
