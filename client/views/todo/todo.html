@@ -7,10 +7,10 @@
       <li class="active"><a href="/signin">SignIn</a></li>
       <li><a href="/signup">SignUp</a></li>
       <li><a href="/todo">TodoList</a></li>
+      <li><a href="/update">UpdateTodoList</a></li>
     </ul>
   </div>
   </nav>
-
   <div class="container">
 
   <h2>List Todo</h2>
@@ -18,63 +18,17 @@
     <thead>
       <tr>
         <th>Id</th>
-        <th>Nom</th>
-        <th>Email</th>
+        <th>Message</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="todo in listTodo">
         <td>{{todo.id}}</td>
-        <td>{{todo.nom}}</td>
-        <td>{{todo.email}}</td>
-
+        <td ng-class="{'completed': todo.completed == true}">{{todo.message}}</td>
         <!--<td><button type="button" class="btn btn-primary">Ajouter</button></td>-->
-        <td><button type="button" class="btn btn-danger" ng-click="delete(todo.id)">Supprimer</button></td>
-          <td><button type="button" id="tes" class="btn btn-success" ng-click="selectEdit(todo.id)">Modifier</button></td>
+        <td><button type="button" class="btn btn-danger" ng-click="delete(todo)">Supprimer</button></td>
+          <td><a href="/update/{{todo.id}}" class="btn btn-success">Modifier</a></td>
       </tr>
     </tbody>
   </table>
 </div>
-
-    <div id="signupbox2" style="margin-top:70px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <div class="panel-title" style="text-align="center;"">Modification</div>
-                    </div>
-                    <div class="panel-body" >
-                        <form id="signupform" class="form-horizontal" role="form">
-
-                            <div id="signupalert" style="display:none" class="alert alert-danger">
-                                <p>Error:</p>
-                                <span></span>
-                            </div>
-                              <div class="form-group">
-                                <label for="email" class="col-md-3 control-label">id</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="email"  ng-model="id" placeholder="Id">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastname" class="col-md-3 control-label" ng-model="nom">Nom</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="lastname"  ng-model="nom" placeholder="Nom">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="col-md-3 control-label" ng-model="email">email</label>
-                                <div class="col-md-9">
-                                    <input type="email" class="form-control" name="passwd" ng-model="email" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <!-- Button -->
-                                <div class="col-md-offset-3 col-md-9">
-                                    <button id="btn-signup" ng-click="edit()" type="button" class="btn btn-primary"><i class="icon-hand-right"></i> &nbsp Ajouter</button>
-                                    <button id="btn-signup" ng-click="add()" type="button" class="btn btn-success"><i class="icon-hand-right"></i> &nbsp Modifier</button>
-
-                                </div>
-                            </div>
-                        </form>
-                     </div>
-                </div>
-  </div>

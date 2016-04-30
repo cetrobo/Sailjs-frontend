@@ -1,51 +1,24 @@
 'use strict';
 
 angular.module('crud')
-  .controller('TodoCtrl', function ($scope) {
+  .controller('TodoCtrl', function ($scope,$routeParams,Todolist) {
+  $scope.listTodo=Todolist.all();
+  $scope.selectedTodo=null;
 
-
-  	$scope.listTodo=[
-  	{
-  		id:'a01',
-  		nom:'achraf',
-  		email:'achraf.benaomar@gmail.com'
-  	},
-  	{
-  		id:'a02',
-  		nom:'younes',
-  		email:'younes.benaomar@gmail.com'
-  	},
-
-  	{
-  		id:'a03',
-  		nom:'souhail',
-  		email:'souhail.benaomar@gmail.com'
-  	}
-
-  	];
-
-
-;
-
-
+/*
   $scope.add=function() {
     $scope.listTodo.push=({
       id:$scope.id,
-      nom:$scope.nom,
-      email:$scope.email
+      message:$scope.message
     });
 
     $scope.id="";
-    $scope.nom="";
-    $scope.email="";
-  }
-  $scope.selectEdit =function(id){
-    
-    var index=getSelectedIndex(id);
-    var todo=$scope.listTodo[index];
-    $scope.id=todo.id;
-    $scope.nom=todo.nom;
-    $scope.email=todo.email;
+    $scope.message="";
+  }*/
+
+  $scope.selectEdit =function(todo){
+    console.log(todo);
+    $scope.selectedTodo=todo;
 
   }
 
@@ -54,8 +27,7 @@ angular.module('crud')
 
       var index=getSelectedIndex($scope.id);
       $scope.listTodo[index].id=$scope.id;
-      $scope.listTodo[index].nom=$scope.nom;
-      $scope.listTodo[index].email=$scope.email;
+      $scope.listTodo[index].message=$scope.message;
 
   }
 

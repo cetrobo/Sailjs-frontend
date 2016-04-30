@@ -3,8 +3,8 @@
 angular.module('crud')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/signup', {
-        templateUrl: 'views/signup/signup.html',
-        controller: 'SignupCtrl',
+      .when('/update', {
+        templateUrl: 'views/update/update.html',
+        controller: 'UpdateCtrl'
       });
   });
