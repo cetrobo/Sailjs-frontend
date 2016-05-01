@@ -26,7 +26,7 @@ server.listen(config.port, config.ip, function () {
     app.get('env')
   );
 
-  if (config.env === 'development') {
+  if (config.env === 'production') {
     require('ripe').ready();
   }
 
