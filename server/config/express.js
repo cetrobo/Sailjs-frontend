@@ -20,7 +20,7 @@ module.exports = function (app) {
   app.use(express.static(path.join(config.root, 'client')));
   app.set('appPath', 'client');
 
-  if (env === 'development' || env === 'test') {
+  if (env === 'production' || env === 'test') {
     app.use(require('errorhandler')());
   }
 
