@@ -1,6 +1,9 @@
 'use strict';
 
 angular.module('crud')
+.factory('_', function() {
+		return window._;
+	})
   .factory('Todolist', function () {
 
     var todo=[{
@@ -34,7 +37,7 @@ angular.module('crud')
         getById: function(todoId){
 
             return _.find(todo,function(todos){
-                
+
                 return todos.id == todoId;
 
             });
