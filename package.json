@@ -39,6 +39,7 @@
     "compression": "^1.6.0",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.3",
+    "form-data": "^1.0.0-rc4",
     "lodash": "^4.0.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.3.5",
