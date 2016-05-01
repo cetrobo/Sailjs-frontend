@@ -38,6 +38,7 @@
     "chalk": "^1.1.1",
     "compression": "^1.6.0",
     "cookie-parser": "^1.4.1",
+    "errorhandler": "^1.4.3",
     "express": "^4.13.3",
     "form-data": "^1.0.0-rc4",
     "lodash": "^4.0.0",
