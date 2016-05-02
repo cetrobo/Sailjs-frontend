@@ -17,19 +17,24 @@
   <table class="table table-hover">
     <thead>
       <tr>
+        <th>Index</th>
         <th>Id</th>
+        <th>Titre</th>
         <th>Message</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="todo in listTodo">
+        <td>{{$index}}</td>
         <td>{{todo.id}}</td>
-        <td ng-class="{'completed': todo.completed == true}">{{todo.message}}</td>
+        <td>{{todo.titre}}</td>
+        <td ng-class="{'completed': todo.completed == true}"><a href="/message-details/{{todo.id}}">{{todo.message}}</a></td>
         <!--<td><button type="button" class="btn btn-primary">Ajouter</button></td>-->
-        <td><button type="button" class="btn btn-danger" ng-click="delete(todo.id)">Supprimer</button></td>
+        <td><button type="button" class="btn btn-danger" ng-click="delete($index)">Supprimer</button></td>
           <td><a href="/update/{{todo.id}}" class="btn btn-success" ng-click="selectEdit(todo)">Modifier</a></td>
-          <td><a href="/add" class="btn btn-primary" ng-click="add(todo)">Ajouter</a></td>
+
       </tr>
     </tbody>
   </table>
+    <ul><li style="list-style: none;"><td>Vous voulez ajouter un todo ? <a href="/add" class="btn btn-primary" ng-click="add(todo)">Ajouter</a></td></li></ul>
 </div>

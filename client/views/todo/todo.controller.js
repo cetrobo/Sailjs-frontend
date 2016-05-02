@@ -24,12 +24,11 @@ angular.module('crud')
 
 
 
-    $scope.delete=function(id){
-        //console.log("id object",id);
-      //console.log("before"+id);
+    $scope.delete=function(index){
+      
       var result=confirm("voulez vraiment supprimez cette element");
 
-      var index=getSelectedIndex(id); //get index
+      //var index=getSelectedIndex(id); //get index
        //alert(index);
        if(result === true){
 
@@ -40,30 +39,7 @@ angular.module('crud')
       //  console.log("after"+id);
     };
 
-/*
-    $scope.getindex=function(index){
 
-      console.log(index);
-
-getindex($index)
-
-    }*/
-
-
-  function getSelectedIndex(id){
-
-
-    	for(var i=0;i<$scope.listTodo.length;i++){
-
-    			//console.log($scope.listTodo[i]);
-    			if($scope.listTodo[i].id == id){
-    				return i;
-    			}
-
-    	}
-
-
-    };
 
 
   });

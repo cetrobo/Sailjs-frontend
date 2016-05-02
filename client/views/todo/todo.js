@@ -6,6 +6,6 @@ angular.module('crud')
       .when('/todo', {
         templateUrl: 'views/todo/todo.html',
         controller: 'TodoCtrl'
-        
+
       });
   });

@@ -8,18 +8,21 @@ angular.module('crud')
 
     var todo=[{
       id:'a01',
+			titre:'Citation',
       message:'Vous êtes de ceux-là ? Ca tombe bien, je lai été moi aussi !',
-      completed:false,
+      completed:false
     },
     {
 
       id:'a02',
+			titre:'Citation 2',
       message:'Le mieux pour se faire une idée est de le tester',
       completed:false
     },
     {
 
       id:'a03',
+			titre:'Citation 3',
       message:' Node.js  pour les débutants',
       completed:false
     }
@@ -36,13 +39,19 @@ angular.module('crud')
 
         getById: function(todoId){
 
-            return _.find(todo,function(todos){
+					for(var i=0;i<todo.length;i++){
+				//console.log(todo[i].id == todoId);
 
-                return todos.id == todoId;
+						if(todo[i].id == todoId){
+							console.log(todo[i]);
+							return todo[i];
 
-            });
+						}
+					}
 
-        }
+
+
+        },
 
 
     };
