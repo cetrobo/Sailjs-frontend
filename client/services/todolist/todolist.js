@@ -40,10 +40,9 @@ angular.module('crud')
         getById: function(todoId){
 
 					for(var i=0;i<todo.length;i++){
-				//console.log(todo[i].id == todoId);
+
 
 						if(todo[i].id == todoId){
-							console.log(todo[i]);
 							return todo[i];
 
 						}

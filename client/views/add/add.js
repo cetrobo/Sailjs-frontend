@@ -5,7 +5,6 @@ angular.module('crud')
     $routeProvider
       .when('/add', {
         templateUrl: 'views/add/add.html',
-        controller: 'AddCtrl',
-        controllerAs: 'vm'
+        controller: 'AddCtrl'
       });
   });
