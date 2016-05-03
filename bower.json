@@ -11,7 +11,8 @@
     "overrides": {
     "bootstrap": {
       "main": [
-        "dist/css/bootstrap.css"
+        "dist/css/bootstrap.css",
+        "fonts/"
       ]
     }
   },
