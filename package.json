@@ -50,7 +50,6 @@
     "underscore-node": "^0.1.2"
   },
   "scripts": {
-    "start": "node server/server.js",
-     "postinstall": "./node_modules/bower/bin/bower install"
+    "start": "node server/server.js"
   }
 }
