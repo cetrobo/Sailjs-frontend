@@ -1,24 +1,28 @@
-'use strict';
+  'use strict';
 
 angular.module('crud', [
   'ngRoute',
   'angular-jwt',
-  'ngSails'
+  'ngSails',
+  'ngMessages',
+  'ngResource'
   
 
 ])
-  .config(function ($routeProvider, $locationProvider,$sailsProvider) {
-    //console.log($locationProvider);
-     $sailsProvider.url = 'https://sails-backoffice.herokuapp.com/';
-     //console.log($sailsProvider.url);
-
+  .config(function ($httpProvider,$routeProvider, $locationProvider,$sailsProvider,jwtInterceptorProvider) {
     
-     //console.log($sailsProvider);
-    $routeProvider
-      .otherwise({
-        redirectTo: '/'
-      });
+     $sailsProvider.url = 'https://sails-backoffice.herokuapp.com';
+      //console.log($httpProvider);
+       //var token = User.signup(data);
+  
+       //console.log(jwtInterceptorProvider);
+      var token=localStorage.getItem('id_token');
+      
+      $routeProvider
+        .otherwise({
+          redirectTo: '/'
+        });
 
-    $locationProvider.html5Mode(true);
+      $locationProvider.html5Mode(true);
 
   });

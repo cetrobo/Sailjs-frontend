@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('crud')
-  .controller('SigninCtrl', function () {
+  .controller('SigninCtrl', function (Signup) {
 
   });
