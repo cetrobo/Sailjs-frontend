@@ -16,13 +16,31 @@ angular.module('crud', [
        //var token = User.signup(data);
   
        //console.log(jwtInterceptorProvider);
-      var token=localStorage.getItem('id_token');
-      
+      //var token=localStorage.getItem('id_token');
+
       $routeProvider
         .otherwise({
           redirectTo: '/'
         });
 
-      $locationProvider.html5Mode(true);
+      $locationProvider.html5Mode(true);  
 
-  });
+
+  }).run(function($rootScope,$location){
+
+      $rootScope.$on("$routeChangeStart",function(event,next,current){
+
+          if($rootScope.email == null && $rootScope.password == null){
+
+                $location.path("/signin");
+                //console.log(next.templateUrl);
+          }else{
+
+
+              $location.path("/todo");
+          }
+
+          //console.log($rootScope);
+
+      });
+  });   
