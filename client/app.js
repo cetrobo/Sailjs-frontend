@@ -1,4 +1,4 @@
-  'use strict';
+'use strict';
 
 angular.module('crud', [
   'ngRoute',
@@ -12,8 +12,19 @@ angular.module('crud', [
   .config(function ($httpProvider,$routeProvider, $locationProvider,$sailsProvider,jwtInterceptorProvider) {
     
      $sailsProvider.url = 'https://sails-backoffice.herokuapp.com';
+
+    jwtInterceptorProvider.tokenGetter = function() {
+      //La fonction sera appelle quand il aura un appel http
+      var idToken = localStorage.getItem('id_token');
+      //console.log(idToken);
+        return idToken;
+
+  };
+
+  $httpProvider.interceptors.push('jwtInterceptor');
+
       //console.log($httpProvider);
-       //var token = User.signup(data);
+      //var token = User.signup(data);
   
        //console.log(jwtInterceptorProvider);
       //var token=localStorage.getItem('id_token');
@@ -26,21 +37,4 @@ angular.module('crud', [
       $locationProvider.html5Mode(true);  
 
 
-  }).run(function($rootScope,$location){
-
-      $rootScope.$on("$routeChangeStart",function(event,next,current){
-
-          if($rootScope.email == null && $rootScope.password == null){
-
-                $location.path("/signin");
-                //console.log(next.templateUrl);
-          }else{
-
-
-              $location.path("/todo");
-          }
-
-          //console.log($rootScope);
-
-      });
-  });   
+  });

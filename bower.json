@@ -10,7 +10,8 @@
     "angular-messages": "^1.5.5",
     "angular-jwt": "^0.0.9",
     "sails.io.js": "^0.13.6",
-    "angular-resource": "^1.5.5"
+    "angular-resource": "^1.5.5",
+    "angular-password": "^1.0.1"
   },
   "overrides": {
     "bootstrap": {

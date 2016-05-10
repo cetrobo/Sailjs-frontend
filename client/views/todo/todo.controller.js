@@ -1,26 +1,28 @@
 'use strict';
 
 angular.module('crud')
-  .controller('TodoCtrl', function ($scope,$routeParams,Todolist) {
-  $scope.listTodo=Todolist.all();
+  .controller('TodoCtrl', function ($scope,$routeParams,Todolist,$sails, $http,Todo) {
+   
   $scope.selectedTodo=null;
 
-/*
-  $scope.add=function() {
-    $scope.listTodo.push=({
-      id:$scope.id,
-      message:$scope.message
-    });
+  
 
-    $scope.id="";
-    $scope.message="";
-  }*/
+    $http.get("https://sails-backoffice.herokuapp.com/api/todo")
 
-  $scope.selectEdit =function(todo){
-    //console.log(todo);
-    $scope.selectedTodo=todo;
-
-  }
+    .success(function (data, status, headers, jwr) {
+               //console.log(data);
+               $scope.listTodo=data;
+           
+       // données récupérées avec succès
+      })
+      .error(function (data, status, headers, jwr) {
+        
+          //console.log(status); 
+          
+          console.log(data + status);
+       
+      });
+  
 
 
 
@@ -28,15 +30,12 @@ angular.module('crud')
       
       var result=confirm("voulez vraiment supprimez cette element");
 
-      //var index=getSelectedIndex(id); //get index
-       //alert(index);
        if(result === true){
 
          $scope.listTodo.splice(index,1);
 
        }
-      //slice
-      //  console.log("after"+id);
+      
     };
 
 

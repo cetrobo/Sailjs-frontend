@@ -1,20 +1,39 @@
 'use strict';
 
 angular.module('crud')
-  .controller('AddCtrl', function ($scope,Todolist) {
+  .controller('AddCtrl', function ($scope,Todolist,Todo) {
 
- $scope.listTodo=Todolist.all();
+
 
   $scope.add=function(){
 
 
-   $scope.listTodo.push({
-   		id:$scope.id,
-      titre:$scope.message,
-   		message:$scope.titre,
-   		completed:$scope.completed
-   });
+   var data=$scope.data={
 
+      id:$scope.id,
+      titre:$scope.titre,
+      message:$scope.message,
+      completed:$scope.completed
+
+    }
+
+     var todo=Todo.addTodo(data);
+
+
+      todo.success(function(data){
+
+               var token=data.token;
+               console.log(token);
+               localStorage.setItem('id_token', token);
+
+
+      }).error(function (data) {
+        
+          //console.log(status); 
+          
+          console.log(data);
+       
+      });
 
    };
 

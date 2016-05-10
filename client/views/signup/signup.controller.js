@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('crud')
-  .controller('SignupCtrl', function ($window,$scope,User,jwtHelper,$rootScope) {
+  .controller('SignupCtrl', function ($scope,User,jwtHelper,$rootScope,$location) {
   	//console.log(User);
      	
   	 $scope.signup = function () {
@@ -10,19 +10,20 @@ angular.module('crud')
           
            var user = User.signup(data)
 
-           user.success(function (data,jwtInterceptorProvider,$httpProvider) {
+           user.success(function (data) {
+            //console.log(data);
                 //Do whatever is needed
-                $httpProvider.interceptors = [];
+                
                 var token=data.token;
-                localStorage.setItem('id_token', token);
-                $httpProvider.interceptors.push('jwtInterceptor');
+                localStorage.setItem('id_token', token);//sauvegarder token sur localstorage
+               
                   //console.log(jwtInterceptor);
-                //$window.location.href = '/signin';
+                $location.path("/signin");
            })
 
            user.error(function (data) {
                 //Do whatever is needed
-               //console.log(data);
+               console.log(data);
            });  
         };
  
