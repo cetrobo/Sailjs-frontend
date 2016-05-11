@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crud').service('User', function ($sails,jwtHelper) {
+angular.module('crud').service('User', function ($sails) {
     
 	//console.log($sails);
     return {

@@ -5,12 +5,22 @@ angular.module('crud')
 
   		return{
 
-  			addTodo : function(data){
+  			addTodo : function(todo){
 
-  				return $http.post('/api/todo');
+  				return $http.post('https://sails-backoffice.herokuapp.com/api/todo');
 
   			},
 
+        removeTodo:function(index){
+
+            return $http.delete('https://sails-backoffice.herokuapp.com/api/todo');
+        },
+
+  			alltodo: function(){
+
+  				return $http.get('https://sails-backoffice.herokuapp.com/api/todo');
+
+  			}
 
   		}
 
