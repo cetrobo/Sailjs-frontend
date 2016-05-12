@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('crud')
-  .service('Todo', function ($http) {
+  .service('Todo', function ($http,$sails) {
 
   		return{
 
@@ -11,7 +11,12 @@ angular.module('crud')
 
   			},
 
-     
+        removeTodo:function(id){
+            //console.log("todo"+id);
+            return $http.delete("https://sails-backoffice.herokuapp.com/api/todo/" + id + "");
+        },
+
+
   			alltodo: function(){
 
   				return $http.get('https://sails-backoffice.herokuapp.com/api/todo');

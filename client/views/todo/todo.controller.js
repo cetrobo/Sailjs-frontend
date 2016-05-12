@@ -27,6 +27,35 @@ angular.module('crud')
       });
   
 
+    $scope.selectEdit=function(id){
+            //console.log(id);
+           
+            console.log(id);
+           
+      };
 
+      $scope.delete=function(id){
+            
+            var removed=Todo.removeTodo(id);
+
+        removed.success(function (data, status, headers, jwr) {
+
+              console.log(data);
+               
+      
+      })
+      .error(function (data, status, headers, jwr) {
+        
+        
+          
+          console.log(data);
+       
+      });
+           
+      };
+
+
+
+    
 
   });
