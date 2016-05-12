@@ -26,23 +26,7 @@ angular.module('crud')
        
       });
   
-      $scope.delete=function(index){
 
-            var removed=Todo.removeTodo(index);
 
-        removed.success(function (data, status, headers, jwr) {
-              $scope.listTodo=data;
-               
-       // données récupérées avec succès
-      })
-      .error(function (data, status, headers, jwr) {
-        
-          //console.log(status); 
-          
-          console.log(data);
-       
-      });            
-      };
-    
 
   });

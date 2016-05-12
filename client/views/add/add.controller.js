@@ -20,22 +20,19 @@ angular.module('crud')
      
 
       todo.success(function(data, status, headers){
-               //console.log(data)
-               var token=data.token;
-               
-               localStorage.setItem('id_token', token);
-
+               console.log(data)
+              
 
       }).error(function (data, status, headers) {
         
           //console.log(status); 
           
-          console.log(data);
+          //console.log(data);
        
       });
 
    };
 
-   
+  
 
   });
