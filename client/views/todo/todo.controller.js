@@ -1,61 +1,50 @@
 'use strict';
 
 angular.module('crud')
-  .controller('TodoCtrl', function ($scope,$routeParams,Todolist,$http,Todo) {
+  .controller('TodoCtrl', function ($scope,$routeParams,Todo,Todolist,$http) {
    
   $scope.selectedTodo=null;
-
-  
-
-       var getTodo=Todo.alltodo();
-       
+    var getTodo=Todo.allTodo();
     getTodo.success(function (data, status, headers, jwr) {
+              console.log(data);
               $scope.listTodo=data;
-              var token=data.token;
-               //console.log(JSON.stringify(data, null, 4))
-                localStorage.getItem('id_token', token);
-               //console.log(JSON.stringify(data,null,4));
-               
        // données récupérées avec succès
       })
       .error(function (data, status, headers, jwr) {
-        
           //console.log(status); 
-          
           console.log(data);
        
       });
-  
 
-    $scope.selectEdit=function(id){
-            //console.log(id);
-           
-            console.log(id);
-           
-      };
+   
 
       $scope.delete=function(id){
-            
-            var removed=Todo.removeTodo(id);
+         var removed=Todo.removeTodo(id);
+         var confirmation=confirm("vous voulez vraiment supprimez todo ?");
+           if(confirmation == true){
+              removed.success(function (reponse) {
+                alltodo();
+            })
+          .error(function (reponse) {
+            console.log(reponse);
+          });
+        }
+       };
 
-        removed.success(function (data, status, headers, jwr) {
 
+        function alltodo(){
+
+             var getTodo=Todo.allTodo();
+    getTodo.success(function (data, status, headers, jwr) {
               console.log(data);
-               
-      
+              $scope.listTodo=data;
+       // données récupérées avec succès
       })
       .error(function (data, status, headers, jwr) {
-        
-        
-          
+          //console.log(status); 
           console.log(data);
        
       });
-           
-      };
-
-
-
-    
+        }
 
   });

@@ -11,9 +11,9 @@ angular.module('crud').service('User', function ($sails) {
 
 
 
-    	signinn: function(data){
+    	signin: function(data){
 
-    		return $sails.get('/api/auth',data);
+    		return $sails.post('/api/auth',data);
     	},
 
 

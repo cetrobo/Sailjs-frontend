@@ -4,7 +4,9 @@ angular.module('crud')
 .factory('_', function() {
 		return window._;
 	})
-  .factory('Todolist', function () {
+  .factory('Todolist', function (Todo) {
+
+      
 
     var todo=[{
       id:'a01',
@@ -31,9 +33,12 @@ angular.module('crud')
 
     return {
 
+
+
         all: function(){
 
           return todo;
+   
 
         },
 

@@ -10,7 +10,7 @@ angular.module('crud')
            var user = User.signup(data)
 
            user.success(function (data) {
-            //console.log(data);
+            console.log("user success ",data);
                 //Do whatever is needed
                 console.log(data);
                 var token=data.token;

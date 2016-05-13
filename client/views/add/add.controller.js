@@ -16,18 +16,13 @@ angular.module('crud')
 
     };
      //console.log(data);
-     var todo=Todo.addTodo(dataTodo);
-     
-
+      var todo=Todo.addTodo(dataTodo);
+      $scope.disabled=false;
       todo.success(function(data, status, headers){
-               console.log(data)
-              
-
+              $scope.disabled=true;
       }).error(function (data, status, headers) {
         
-          //console.log(status); 
-          
-          //console.log(data);
+          console.log(data);
        
       });
 
