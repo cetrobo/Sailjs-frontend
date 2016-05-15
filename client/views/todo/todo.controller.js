@@ -22,11 +22,12 @@ angular.module('crud')
          var removed=Todo.removeTodo(id);
          var confirmation=confirm("vous voulez vraiment supprimez todo ?");
            if(confirmation == true){
-              removed.success(function (reponse) {
+              removed.success(function (data) {
+                console.log(data);
                 alltodo();
             })
-          .error(function (reponse) {
-            console.log(reponse);
+          .error(function (data) {
+            console.log(data);
           });
         }
        };

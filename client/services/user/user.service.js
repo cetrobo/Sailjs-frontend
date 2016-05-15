@@ -10,12 +10,10 @@ angular.module('crud').service('User', function ($sails) {
     	},
 
 
-
     	signin: function(data){
 
     		return $sails.post('/api/auth',data);
     	},
-
 
 
  
