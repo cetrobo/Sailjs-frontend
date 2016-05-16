@@ -11,100 +11,58 @@
     </ul>
   </div>
 </nav>
-<div class="container">
-    <div id="loginbox" style="display:none;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info" >
-            <div class="panel-heading">
-                <div class="panel-title" href="/signin">Sign In</div>
-                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
-            </div>
-            <div style="padding-top:30px" class="panel-body" >
-                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-
-                <form id="loginform" ng-submit="msg" class="form-horizontal" nrole="form">
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
-                    </div>
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-                    </div>
-                    <div class="input-group">
-                        <div class="checkbox">
-                            <label>
-                                <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                            </label>
-                        </div>
-                    </div>
-                    <div style="margin-top:10px" class="form-group">
-                        <!-- Button -->
-                        <div class="col-sm-12 controls">
-                            <a id="btn-login" href="#" class="btn btn-success">Login  </a>
-                            <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12 control">
-                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                Don't have an account!
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+<div  style="margin-top:70px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <div class="panel-title">Sign Up</div>
+      <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="/signin">Sign In</a></div>
     </div>
-    <div  style="margin-top:70px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="panel-title">Sign Up</div>
-                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="/signin">Sign In</a></div>
-            </div>
-            <div class="panel-body" >
-                <form name="userForm"  ng-submit="signup()" class="form-horizontal" role="form" >
-
-                    <div id="signupalert" style="display:none" class="alert alert-danger">
-                        <p>Error:</p>
-                        <span></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="col-md-3 control-label">Email</label>
-                        <div class="col-md-9">
-                            <input type="email" class="form-control" name="email" placeholder="Email Address"  ng-model="email" minlength="5" required/>
-                              <div ng-messages="userForm.email.$error" ng-messages-multiple class="messages">
-                              <div  ng-message="minlength">this field is to short</div>
-                               <div ng-message="email">Invalid email address</div>
-                              </div>
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="lastname" class="col-md-3 control-label">Password</label>
-                        <div class="col-md-9">
-                            <input type="password" class="form-control" name="password" placeholder="password" ng-model="password" required />
-                               <div ng-messages="userForm.password.$error" ng-messages-multiple class="messages">
-                              <div  ng-message="minlength">this field is to short</div>
-                              </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="col-md-3 control-label">ConfirmPassword</label>
-                        <div class="col-md-9">
-                            <input type="password" class="form-control" name="confirmPassword" placeholder="confirmPassword" ng-model="confirmPassword" required />
-                              <div ng-messages="userForm.confirmpassword.$error" ng-messages-multiple class="messages">
-                              <div  ng-message="minlength">this field is to short</div>
-                              </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <!-- Button -->
-                        <div class="col-md-offset-3 col-md-9">
-                            <button id="btn-signup" type="submit" class="btn btn-block btn-lg btn-success"><i class="icon-hand-right" ></i> &nbsp Sign Up</button>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
+    <div class="panel-body" >
+      <form name="userForm"  ng-submit="signup()" class="form-horizontal" role="form" >
+        <div id="signupalert" style="display:none" class="alert alert-danger">
+          <p>Error:</p>
+          <span></span>
         </div>
+        <div class="form-group" ng-class="{'has-error':userForm.$dirty && userForm.email.$invalid,'has-success':userForm.email.$valid}">
+          <label for="email" class="col-md-3 control-label">Email</label>
+          <div class="col-md-9">
+            <input type="email" class="form-control" name="email" placeholder="Email Address"  ng-model="email"  required/>
+            <span class="text-danger" ng-show="userForm.email.$error.minlength">
+              Doit contenir au minimum 5 caractères
+            </span>
+            
+          </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error':userForm.$dirty && userForm.password.$invalid,'has-success':userForm.password.$valid}">
+          <label for="lastname"  class="col-md-3 control-label">Password</label>
+          <div class="col-md-9">
+            <input type="password" class="form-control" ng-minlength="6" name="password" placeholder="password" ng-model="password" required />
+            <span class="text-danger" ng-show="userForm.password.$error.minlength">
+              Password too short
+            </span>
+          </div>
+        </div>
+        <div class="form-group"  ng-class="{'has-error':userForm.$dirty && userForm.confirmPassword.$invalid,'has-success':userForm.confirmPassword.$valid}">
+
+          <label for="password" class="col-md-3 control-label">ConfirmPassword</label>
+          <div class="col-md-9">
+            <input id="confirmPassword" type="password" class="form-control"
+            required equals-to="userForm.password" placeholder="confirmPassword" name="confirmPassword" ng-model="confirmPassword" />
+            <span class="text-danger col-sm-offset-3" ng-show="userForm.confirmPassword.$error.equalsTo">
+              Passwords are differents
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- Button -->
+          <div class="col-md-offset-3 col-md-9">
+            <button id="btn-signup" type="submit"  ng-disabled="userForm.$invalid" class="btn btn-block btn-lg btn-success"><i class="icon-hand-right" ></i> &nbsp Sign Up</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <h1>
+  <hello-world></hello-world>
+</h1>
