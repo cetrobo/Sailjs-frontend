@@ -7,4 +7,6 @@ angular.module('crud')
         templateUrl: 'views/update/update.html',
         controller: 'UpdateCtrl'
       });
+
+   
   });

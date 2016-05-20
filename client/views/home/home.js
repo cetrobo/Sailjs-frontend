@@ -7,5 +7,6 @@ angular.module('crud')
         templateUrl: 'views/home/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'vm'
+        
       });
   });

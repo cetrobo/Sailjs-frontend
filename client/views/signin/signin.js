@@ -5,7 +5,8 @@ angular.module('crud')
     $routeProvider
       .when('/signin', {
         templateUrl: 'views/signin/signin.html',
-        controller: 'SigninCtrl',
-        controllerAs: 'vm'
+        controller: 'SigninCtrl'
+        
+        
       });
   });

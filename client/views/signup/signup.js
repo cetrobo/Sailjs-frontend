@@ -5,6 +5,6 @@ angular.module('crud')
     $routeProvider
       .when('/signup', {
         templateUrl: 'views/signup/signup.html',
-        controller: 'SignupCtrl',
+        controller: 'SignupCtrl'
       });
   });

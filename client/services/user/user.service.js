@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('crud').service('User', function ($sails) {
-    
+    	
+    	var user;
 	//console.log($sails);
     return {
 
@@ -15,6 +16,17 @@ angular.module('crud').service('User', function ($sails) {
     		return $sails.post('/api/auth',data);
     	},
 
+        setUser : function(aUser){
+
+        user = aUser;
+
+        },
+
+        isLoggedIn : function(){
+            
+        return(user)? user : false;
+
+         }
 
  
     } 

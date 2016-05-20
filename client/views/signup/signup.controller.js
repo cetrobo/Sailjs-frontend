@@ -10,23 +10,13 @@ angular.module('crud')
            var user = User.signup(data)
 
            user.success(function (data) {
-            //console.log("user success ",data);
-                //Do whatever is needed
-                console.log(data);
                 var token=data.token;
                 localStorage.setItem('id_token', token);//sauvegarder token sur localstorage
-               
-                  //console.log(jwtInterceptor);
                 $location.path("/signin");
            })
-
            user.error(function (data) {
-                //Do whatever is needed
-               console.log(" error "+data);
+               
            });  
-    };
- 
- 
-
+         };
 });	
 

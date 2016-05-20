@@ -6,7 +6,7 @@ angular.module('crud')
   $scope.selectedTodo=null;
     var getTodo=Todo.allTodo();
     getTodo.success(function (data, status, headers, jwr) {
-              console.log(data);
+              //console.log(data);
               $scope.listTodo=data;
        // données récupérées avec succès
       })
@@ -23,7 +23,7 @@ angular.module('crud')
          var confirmation=confirm("vous voulez vraiment supprimez todo ?");
            if(confirmation == true){
               removed.success(function (data) {
-                console.log(data);
+                console.log("deleted",data);
                 alltodo();
             })
           .error(function (data) {

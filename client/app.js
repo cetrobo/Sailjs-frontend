@@ -36,5 +36,28 @@ angular.module('crud', [
 
       $locationProvider.html5Mode(true);  
 
+/*
+1. $locationChangeStart
+3. $locationChangeSuccess
+2. $routeChangeStart
+4. $routeChangeSuccess */
 
-  });
+  }).run(function ($rootScope, $location,$log,User) {
+
+     $rootScope.$on("$locationChangeStart", function (event,next, current,jwtHelper) {
+          
+          
+          if(!User.isLoggedIn()){
+              
+             console.log("not connect");
+
+
+          }else{
+
+
+             console.log("connect");
+          }
+
+    });
+
+});
