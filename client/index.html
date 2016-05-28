@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="crud">
+  <head>
+
+    <base href="/">
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- build:css app.css -->
+       
+    <!-- bower:css -->
+     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+     <!-- endinject -->
+
+    <link rel="stylesheet" href="styles/css/app.css">
+
+   
+
+
+    <!-- endbuild -->
+
+  </head>
+  <body>
+<nav class="navbar navbar-default navbar-fixed-top" ng-if="isLogged" ng-controller="navCtrl">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">CRUD EXAMPLE</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a ui-sref="profile" ng-if="isLogged">Profil</a></li>
+      <li><a ui-sref="todo">TodoList</a></li>
+      <li><a href="#" ng-click="logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+    <div ui-view></div>
+    <!-- build:js app.js -->
+
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+    <script src="bower_components/sails.io.js/dist/sails.io.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <!-- endinject -->
+
+    <script src="bower_components/angular-sails/dist/angular-sails.js"></script>
+    <!-- inject:js -->
+    <script src="app.js"></script>
+    <script src="views/update/update.js"></script>
+    <script src="views/update/update.controller.js"></script>
+    <script src="views/todo/todo.js"></script>
+    <script src="views/todo/todo.controller.js"></script>
+    <script src="views/signup/signup.js"></script>
+    <script src="views/signup/signup.controller.js"></script>
+    <script src="views/signin/signin.js"></script>
+    <script src="views/signin/signin.controller.js"></script>
+    <script src="views/profile-update/profile-update.js"></script>
+    <script src="views/profile-update/profile-update.controller.js"></script>
+    <script src="views/profile/profile.js"></script>
+    <script src="views/profile/profile.controller.js"></script>
+    <script src="views/message-details/message-details.js"></script>
+    <script src="views/message-details/message-details.controller.js"></script>
+    <script src="views/add/add.js"></script>
+    <script src="views/add/add.controller.js"></script>
+    <script src="services/user/user.service.js"></script>
+    <script src="services/todolist/todolist.js"></script>
+    <script src="services/todo/todo.js"></script>
+    <script src="directives/equal/equal.js"></script>
+    <!-- endinject -->
+
+    <!-- endbuild -->
+
+    <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+
+  </body>
+</html>

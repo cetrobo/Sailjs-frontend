@@ -1,0 +1,43 @@
+<div  style="margin-top:70px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <div class="panel-title">Sign Up</div>
+      <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="/signin">Sign In</a></div>
+    </div>
+    <div class="panel-body" >
+      <form name="userForm"  ng-submit="signup()" class="form-horizontal" role="form" >
+
+        <div class="form-group">
+          <label for="email" class="col-md-3 control-label">Email</label>
+          <div class="col-md-9">
+          <input type="email" id="email" class="form-control  ng-invalid submitted" name="email" ng-model="email" required/>
+          <span  class="messages" ng-show="userForm.email.$error.required && userForm.email.$dirty">required</span>
+          <span  class="messages" ng-show="!userForm.email.$error.required && userForm.email.$error.email && userForm.email.$dirty">invalid email</span>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="lastname"  class="col-md-3 control-label">Password</label>
+          <div class="col-md-9">
+
+            <input type="password" class="form-control ng-invalid submitted" id="password" name="password" ng-model="password" ng-minlength="8" ng-maxlength="20"  required />
+           <span class="messages" ng-show="userForm.password.$error.required && userForm.password.$dirty">required</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password" class="col-md-3 control-label">ConfirmPassword</label>
+          <div class="col-md-9">
+           <input type="password" equal="password" class="form-control  ng-invalid submitted" id="confirmPassword" name="confirmPassword" ng-model="confirmPassword" required  />
+           <span  class="messages" ng-show="userForm.password.$error.required && userForm.password.$dirty">required</span>
+            <span class="messages" ng-show="userForm.password.$error.equal">Passwords don't match.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-3 col-md-9">
+            <button id="btn-signup" type="submit" class="btn btn-block btn-lg btn-success"><i class="icon-hand-right" ></i> &nbsp Sign Up</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  </div>

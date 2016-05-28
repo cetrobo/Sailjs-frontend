@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>List Todo</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Titre</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="todo in listTodo">
+        <td>{{$index}}</td>
+        <td>{{todo.titre}}</td>
+        <td ng-class="{'completed': todo.completed == true}"><a ui-sref="todoDetails({id:todo.id})">{{todo.message}}</a></td>
+        <td><button type="button" class="btn btn-danger" ng-click="delete(todo.id)">Supprimer</button></td>
+        <td><a ui-sref="updateTodo({id:todo.id})" class="btn btn-success">Modifier</a></td>
+      </tr>
+    </tbody>
+  </table>
+<ul><li style="list-style: none;"><td>Vous voulez ajouter un todo ? <a ui-sref="todoAdd" class="btn btn-primary" ng-click="add(todo)">Ajouter</a></td></li></ul>
+</div>

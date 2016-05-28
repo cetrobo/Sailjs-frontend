@@ -1,0 +1,26 @@
+
+body {
+  font-family: sans-serif;
+}
+
+
+
+
+.completed{
+
+  text-decoration: line-through;
+}
+  
+
+input.submitted.ng-dirty
+{
+  border:1px solid red;
+}
+input.submitted.ng-valid
+{
+  border:1px solid green;
+}
+.messages{
+
+	color:red;
+}

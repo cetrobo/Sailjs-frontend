@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>List Todo</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="profil in ListeUser">
+        <td>{{$index}}</td>
+        <td>{{profil.email}}</a></td>
+        <td><button type="button" class="btn btn-danger" ng-click="delete(profil.id)">Supprimer</button></td>
+        <td><a ui-sref="profileUpdate({id:profil.id})" class="btn btn-success">Modifier</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
